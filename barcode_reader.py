@@ -1,27 +1,27 @@
 import cv2
 from pyzbar.pyzbar import decode
+def read_barcodes(frame):
+    barcodes = decode(frame)
+    for barcode in barcodes:
+        (x,y,w,h)=barcode.rect
+        barcode_text = barcode.data.decode('utf-8')
+        print(barcode_text)
+        cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
+    return frame
 
-def reader(img):
-    readImg = cv2.imread(img)
+def main():
+    camera = cv2.VideoCapture(0)
 
-    barcodes = decode(readImg)
+    ret, frame = camera.read()
+    while ret:
+        ret, frame = camera.read()
+        frame = read_barcodes(frame)
+        cv2.imshow('Barcode reader', frame)
 
-    if not barcodes:
-        print(barcodes)
-        print("Not a barcode")
-    else:
-        for barcode in barcodes:
-            (x, y, w, h) = barcode.rect
-            cv2.rectangle(img, (x, y),
-                          (x + w, y + h),
-                          (255, 0, 0), 2)
-            if barcode.data!="":
-                
-            # Print the barcode data
-                print(barcode.data)
+        if cv2.waitKey(1) & 0xFF == 27:
+            break
     
-    cv2.imshow("Barcode",readImg)
+    camera.release()
     cv2.destroyAllWindows()
 
-image = "SmartWater.jpg"
-reader(image)
+main()
