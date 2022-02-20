@@ -1,29 +1,22 @@
-from flask import Flask, Response
-import cv2
-app = Flask(__name__)
-video = cv2.VideoCapture(0)
+from flask import Flask, Response, redirect, render_template,url_for
+from barcode_reader import *
 
+app = Flask(__name__)
+
+app.config['SERVER_NAME'] = '0.0.0.0:2204'
 
 @app.route('/')
 def index():
-    return "Default Message"
+    return redirect('/home')
 
+@app.route('/home')
+def after():
+    return render_template('index.html')
 
-def gen(video):
-    while True:
-        success, image = video.read()
-        ret, jpeg = cv2.imencode('.jpg', image)
-        frame = jpeg.tobytes()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
-
-@app.route('/video_feed')
-def video_feed():
-    global video
-    return Response(gen(video),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
-
+@app.route('/scanner')
+def scanner():
+    video = cv2.VideoCapture(0)
+    return Response(gen(video),mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=2204, threaded=True)
+    app.run(host='0.0.0.0', port=2204, threaded=True, debug=True)
