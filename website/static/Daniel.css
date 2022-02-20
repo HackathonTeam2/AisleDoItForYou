@@ -9,6 +9,10 @@ h1{
     text-align:center;
     font-size: 50px;
 } 
+.menu_stuff{
+    color: white;
+    text-decoration: underline;
+}
 
 * {
     margin: 0;
