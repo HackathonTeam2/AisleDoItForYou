@@ -42,7 +42,8 @@ def scanner():
 def product_list():
     if request.method == "POST":
         barcode=os.getenv("QR_VAL")
-        return render_template("productList.html", )
+        productList = Products.query.filter_by(product_location="1")
+        return render_template("productList.html", productList = productList)
 
 #Uneccessary route, used to create test data
 @app.route("/add")
