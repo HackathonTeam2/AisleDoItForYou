@@ -1,8 +1,9 @@
-from flask import Flask, Response, redirect, render_template,url_for,request
+from flask import Flask, Response, redirect, render_template, url_for, request
 from barcode_reader import *
 
 app = Flask(__name__)
 video = cv2.VideoCapture(0)
+
 
 @app.route('/')
 def index():
@@ -12,18 +13,21 @@ def index():
 def intro():
     return render_template('intro.html')
 
+
 @app.route('/home')
 def after():
     return render_template('index.html')
 
+
 @app.route('/scanner')
 def scanner():
-    return Response(generateVideo(video),mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(generateVideo(video), mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/tasks',methods=['POST'])
+
+@app.route('/tasks', methods=['POST'])
 def tasks():
     if request.method == 'POST':
-        return render_template("Daniel.html",barcode=os.getenv("QR_VAL"))
+        return render_template("Daniel.html", barcode=os.getenv("QR_VAL"))
 
 
 if __name__ == '__main__':
