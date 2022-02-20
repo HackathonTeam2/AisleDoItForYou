@@ -1,4 +1,3 @@
-@import url('http://fonts.cdnfonts.com/css/arcade-classic');
 body{
     background-image:url("../img/UGAHacks7.1.jpg");
     background-size:contain;
@@ -9,31 +8,57 @@ h1{
     color:rgb(236, 157, 217);
     text-align:center;
     font-size: 50px;
+} 
+.menu_stuff{
+    color: white;
+    text-decoration: underline;
 }
 
-.barcode:link{
-    color:aliceblue;
-}
-.barcode:hover{
-    color:yellow;
-}
-.content{
-    display:flex;
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+   /* body{
+    background: #1E1F25; */
+  } 
+  ul{
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    margin: auto;
+    max-width: 1000px;
+    justify-content: space-between;
+    text-align: center;
+  }
+  li {
+    padding: 1rem 2rem 1.15rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #ebebeb;
+    min-width: 80px;
+    margin: auto;
+  }
 
-}
-.content img{
-    height:100px;
-    margin-bottom: 500;
-    margin-top:500;
-    position:absolute;
-    border-radius:8px;
-}
-h2{
-    background-color: brown;
-}
-.us{
-    color:rgb(5, 187, 141);
-}
-.us:hover{
-    color:white;
-}
+  li:active {
+    transform: translateY(4px);
+  }
+
+  @keyframes spring {
+    15% {
+      -webkit-transform-origin: center center;
+      -webkit-transform: scale(1.2, 1.1);
+    }
+    40% {
+      -webkit-transform-origin: center center;
+      -webkit-transform: scale(0.95, 0.95);
+    }
+    75% {
+      -webkit-transform-origin: center center;
+      -webkit-transform: scale(1.05, 1);
+    }
+    100% {
+      -webkit-transform-origin: center center;
+      -webkit-transform: scale(1, 1);
+    }
+  }
