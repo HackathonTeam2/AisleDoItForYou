@@ -1,4 +1,4 @@
-import cv2,datetime,os
+import cv2,os
 from pyzbar.pyzbar import decode
 
 capture = 0
