@@ -11,8 +11,14 @@
     <header>
         
     </header>
+        
+    </head>
     <body>
         <h1>Camera</h1>
         <img src="{{url_for('scanner')}}">
+        <form method="POST" action="{{url_for('tasks')}}">
+            <input type="submit" value="capture" name="capture">
+        </form>
+
     </body>
 </html>
