@@ -12,7 +12,6 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
-video = cv2.VideoCapture(0)
 
 
 @app.route("/")
@@ -31,6 +30,7 @@ def home():
 
 @app.route("/scanner")
 def scanner():
+    video = cv2.VideoCapture(0)
     return Response(
         generateVideo(video), mimetype="multipart/x-mixed-replace; boundary=frame"
     )
