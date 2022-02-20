@@ -2,16 +2,13 @@ import cv2,datetime,os
 from pyzbar.pyzbar import decode
 
 capture = 0
-barcodeVal = ""
-
 
 def read_barcodes(frame):
     global barcodeVal
     barcodes = decode(frame)
     for barcode in barcodes:
         barcode_text = barcode.data.decode('utf-8')
-        barcodeVal = barcode_text
-        return barcodeVal
+        return barcode_text
     return frame
     
 def generateVideo(video):

@@ -6,7 +6,11 @@ video = cv2.VideoCapture(0)
 
 @app.route('/')
 def index():
-    return redirect('/home')
+    return redirect('/intro')
+
+@app.route('/intro')
+def intro():
+    return render_template('intro.html')
 
 @app.route('/home')
 def after():
