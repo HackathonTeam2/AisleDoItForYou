@@ -5,8 +5,6 @@ from db_model import *
 
 load_dotenv(find_dotenv())
 
-load_dotenv(find_dotenv())
-
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 
