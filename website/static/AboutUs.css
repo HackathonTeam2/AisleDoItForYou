@@ -20,16 +20,16 @@ body{
     margin:center;
     margin-left:426;
     
-    background-color: #008CBA;
+    background-color: rgba(56, 56, 56, 0.788);
     overflow: hidden;
     width: 500;
     height: 0;
-    top:8%;
+    top:13%;
     transition: .5s ease;
   }
   .content:hover .overlay{
       bottom: 0%;
-      height: 37%;
+      height: 40%;
   }
   .text {
     white-space: nowrap; 
@@ -46,15 +46,26 @@ body{
       text-align:center;
       font-family: 'ArcadeClassic', sans-serif;
   }
+  h2{
+    font-family: 'ArcadeClassic', sans-serif;
+  }
+  .home{
+
+  }
   .info{
       display:block;
-      background-color:rgb(80, 248, 220);
+      background-color:rgba(80, 248, 220, 0.473);
       font-family:'Times New Roman', Times, serif;
       width:50%;
       margin-left:auto;
       margin-right:auto;  
+      border-radius: 8px;
   }
   h2{
     text-align:center;
     font-family: 'ArcadeClassic', sans-serif;
+  }
+  .about {
+      padding: 20px;
+      
   }

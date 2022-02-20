@@ -4,21 +4,15 @@
     </head>
     <link rel = "stylesheet" href = "../static/index.css">
     <body>
-        <div class = "content">
-            <img src = "../img/GroupPic.jpg">
+        <div class = "retro">
+            <h1>Camera</h1>
+            <h2><a class = "colors" href = "intro.html">Home</a></h2>
         </div>
-
-    <header>
-        
-    </header>
-        
-    </head>
-    <body>
-        <h1>Camera</h1>
+        <div class = "Prayers">
         <img src="{{url_for('scanner')}}">
         <form method="POST" action="{{url_for('product_list')}}">
             <input type="submit" value="capture" name="capture">
         </form>
-
+        </div>
     </body>
 </html>
