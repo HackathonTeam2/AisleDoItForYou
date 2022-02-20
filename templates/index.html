@@ -1,18 +1,25 @@
 <html>
-    <head>
-        <title>About Us</title>
-        <link rel = "stylesheet" href = "../static/index.css">
-    </head>
-    <body>
-        <div class = "retro">
-            <h1>Scan an Aisle Code</h1>
-            <h2><a class = "colors" href = "{{url_for('intro')}}">Home</a></h2>
-        </div>
-        <div class = "Prayers">
-        <img src="{{url_for('scanner')}}">
+
+<head>
+    <title>About Us</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+
+<body>
+    <div class="retro">
+        <h1>Scan an Aisle Code</h1>
+        <h2><a class="colors" href="{{url_for('intro')}}">Home</a></h2>
+    </div>
+    <div class="Prayers">
+        <img src="{{url_for('scanner')}}" style=" width: 1000;
+            height: 600;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;">
         <form method="POST" action="{{url_for('product_list')}}">
             <input type="submit" value="capture" name="capture">
         </form>
-        </div>
-    </body>
+    </div>
+</body>
+
 </html>
