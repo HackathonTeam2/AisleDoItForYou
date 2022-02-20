@@ -1,5 +1,13 @@
+@import url('http://fonts.cdnfonts.com/css/arcade-classic%27%27');
 body{
     background-color:white;
     background-image:url("../img/UGAHacks7.jpg");
     
+}
+.retro{
+    font-family: 'ArcadeClassic', sans-serif;
+    text-align:center;
+}
+.colors{
+    color:aliceblue;
 }
