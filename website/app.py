@@ -14,7 +14,7 @@ video = cv2.VideoCapture(0)
 
 @app.route("/")
 def index():
-    return redirect("/home")
+    return redirect("/intro")
 
 
 # @app.route("/add")
@@ -47,4 +47,4 @@ def tasks():
         return render_template("Daniel.html", barcode=os.getenv("QR_VAL"))
 
 
-app.run(debug=True,host=os.getenv("IP","0.0.0.0"), port=int(os.environ.get("PORT", 6000)))
+app.run(debug=True,host=os.getenv("IP","0.0.0.0"), port=int(os.environ.get("PORT", 2204)))
