@@ -5,7 +5,7 @@
     <link rel = "stylesheet" href = "../static/index.css">
     <body>
         <div class = "content">
-            <img src = "../img/GroupPic.jpg">
+            
         </div>
 
     <header>
@@ -15,10 +15,11 @@
     </head>
     <body>
         <h1>Camera</h1>
+        <div class = "Prayers">
         <img src="{{url_for('scanner')}}">
         <form method="POST" action="{{url_for('tasks')}}">
             <input type="submit" value="capture" name="capture">
         </form>
-
+        </div>
     </body>
 </html>
