@@ -1,5 +1,5 @@
 body{
-    background-image:url("../img/UGAHacks7.1.jpg");
+    background-image:url('./img/UGAHacks7-2.jpg');
     background-size:contain;
     background-position-x: center;
     font-family: 'ArcadeClassic', sans-serif;
@@ -21,7 +21,7 @@ h1{
   }
    /* body{
     background: #1E1F25; */
-   .post{
+   .pos{
      position:relative;
      right: 20%;
      text-align: center;
@@ -39,7 +39,6 @@ h1{
     padding: 3rem 2rem 1.16rem;
     text-transform: uppercase;
     cursor: pointer;
-    color: #ebebeb;
     min-width: 80px;
     margin: auto;
   }

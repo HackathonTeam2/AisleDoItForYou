@@ -25,7 +25,7 @@ def intro():
 
 
 @app.route("/home")
-def after():
+def home():
     return render_template("index.html")
 
 
