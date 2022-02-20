@@ -1,30 +1,49 @@
-from flask import Flask, Response, redirect, render_template,url_for,request
+from dotenv import find_dotenv, load_dotenv
+from flask import Flask, Response, redirect, render_template, url_for, request
 from barcode_reader import *
 
+load_dotenv(find_dotenv())
+
 app = Flask(__name__)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+
 video = cv2.VideoCapture(0)
 
-@app.route('/')
+
+@app.route("/")
 def index():
-    return redirect('/intro')
+    return redirect("/home")
 
-@app.route('/intro')
+
+# @app.route("/add")
+# def add():
+#     count = 0
+#     while count < 20:
+#         obj = table("name")
+
+
+@app.route("/intro")
 def intro():
-    return render_template('intro.html')
+    return render_template("intro.html")
 
-@app.route('/home')
+
+@app.route("/home")
 def after():
-    return render_template('index.html')
+    return render_template("index.html")
 
-@app.route('/scanner')
+
+@app.route("/scanner")
 def scanner():
-    return Response(generateVideo(video),mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(
+        generateVideo(video), mimetype="multipart/x-mixed-replace; boundary=frame"
+    )
 
-@app.route('/tasks',methods=['POST'])
+
+@app.route("/tasks", methods=["POST"])
 def tasks():
-    if request.method == 'POST':
-        return render_template("Daniel.html",barcode=os.getenv("QR_VAL"))
+    if request.method == "POST":
+        return render_template("Daniel.html", barcode=os.getenv("QR_VAL"))
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=2204, threaded=True, debug=True)
+app.run(debug=True,host=os.getenv("IP","0.0.0.0"), port=int(os.environ.get("PORT", 2204)))
