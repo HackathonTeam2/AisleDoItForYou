@@ -8,7 +8,7 @@ app.config['SERVER_NAME'] = '0.0.0.0:2204'
 
 @app.route('/')
 def index():
-    return redirect('/scanner')
+    return redirect('/home')
 
 def read_barcodes(frame):
     barcodes = decode(frame)
@@ -31,6 +31,10 @@ def gen(video):
                 return render_template("index.html")
         else:
             yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+            
+@app.route('/home')
+def after():
+    return render_template('index.html')
 
 @app.route('/scanner')
 def scanner():
@@ -50,9 +54,7 @@ def scanner():
     #     print(type(gen(video)))
     #     return Response(gen(video),mimetype='multipart/x-mixed-replace; boundary=frame')
 
-@app.route('/after')
-def after():
-    return render_template('index.html')
+
 
 
 if __name__ == '__main__':
