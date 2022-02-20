@@ -1,0 +1,10 @@
+body{
+    background-image:url("../img/UGAHacks7.1.jpg");
+    background-size:contain;
+    background-position-x: -1.5cm;
+    font-family:'Times New Roman', Times, serif;
+}
+h1{
+    color:rgb(236, 157, 217);
+    text-align:center;
+}
