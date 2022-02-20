@@ -7,13 +7,5 @@ body{
 h1{
     color:rgb(236, 157, 217);
     text-align:center;
-}
-.content{
-    vertical-align:bottom;
-    width: 
-}
-.groupPic{
-    width:1px;
-    height:1px;
-    display:block;
+    font-size: 50px;
 }
