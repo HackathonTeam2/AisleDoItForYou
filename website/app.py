@@ -21,14 +21,6 @@ video = cv2.VideoCapture(0)
 def index():
     return redirect("/intro")
 
-
-# @app.route("/add")
-# def add():
-#     count = 0
-#     while count < 20:
-#         obj = table("name")
-
-
 @app.route("/intro")
 def intro():
     return render_template("intro.html")
@@ -46,10 +38,27 @@ def scanner():
     )
 
 
-@app.route("/tasks", methods=["POST"])
-def tasks():
+@app.route("/product_list", methods=["POST"])
+def product_list():
     if request.method == "POST":
-        return render_template("Daniel.html", barcode=os.getenv("QR_VAL"))
+        barcode=os.getenv("QR_VAL")
+        return render_template("productList.html", )
+
+#Uneccessary route, used to create test data
+@app.route("/add")
+def add():
+    from random import randrange
+    name=["Product1","Product2","Product3","Product4","Product5"]
+    type=["Food", "Electronic", "Drink", "Outdoors","Toys"]
+    location=[1,2,3,4,5,6,7,8,9]
+    count = 0
+    while count < 20:
+        newProduct = Products(name[randrange(0,len(name))],type[randrange(0,len(type))],location[randrange(0,len(location))],randrange(1,100))
+        db.session.add(newProduct)
+        db.session.commit()
+        count += 1
+        
+
 
 
 app.run(debug=True,host=os.getenv("IP","0.0.0.0"), port=int(os.environ.get("PORT", 2204)))
