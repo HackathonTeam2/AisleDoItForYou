@@ -9,3 +9,30 @@ h1{
     text-align:center;
     font-size: 50px;
 }
+
+.barcode:link{
+    color:aliceblue;
+}
+.barcode:hover{
+    color:yellow;
+}
+.content{
+    display:flex;
+
+}
+.content img{
+    height:100px;
+    margin-bottom: 500;
+    margin-top:500;
+    position:absolute;
+    border-radius:8px;
+}
+h2{
+    background-color: brown;
+}
+.us{
+    color:rgb(5, 187, 141);
+}
+.us:hover{
+    color:white;
+}
