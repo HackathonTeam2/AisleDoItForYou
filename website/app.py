@@ -6,8 +6,11 @@ from db_model import *
 load_dotenv(find_dotenv())
 
 app = Flask(__name__)
-
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
+
+db.init_app(app)
+with app.app_context():
+    db.create_all()
 
 video = cv2.VideoCapture(0)
 
