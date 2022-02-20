@@ -1,13 +1,13 @@
-from flask import Flask, Response, redirect, render_template,url_for,make_response
-from pyzbar.pyzbar import decode
-import cv2
-from sqlalchemy import false
+from flask import Flask, Response, redirect, render_template,url_for
+from barcode_reader import *
+
 app = Flask(__name__)
 
 app.config['SERVER_NAME'] = '0.0.0.0:2204'
 
 @app.route('/')
 def index():
+<<<<<<< HEAD
     return redirect("Daniel.html")
 
 def read_barcodes(frame):
@@ -31,10 +31,18 @@ def gen(video):
                 return render_template("Daniel.html")
         else:
             yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+=======
+    return redirect('/home')
+
+@app.route('/home')
+def after():
+    return render_template('index.html')
+>>>>>>> a06dfdbf8c3729797977ea326b9c156f383e7736
 
 @app.route('/scanner')
 def scanner():
     video = cv2.VideoCapture(0)
+<<<<<<< HEAD
     scanner = Response(gen(video),mimetype='multipart/x-mixed-replace; boundary=frame')
     bypass = False
     while bypass == False:
@@ -54,6 +62,9 @@ def scanner():
 # def after():
 #     return render_template('index.html')
 
+=======
+    return Response(gen(video),mimetype='multipart/x-mixed-replace; boundary=frame')
+>>>>>>> a06dfdbf8c3729797977ea326b9c156f383e7736
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=2204, threaded=True, debug=True)
