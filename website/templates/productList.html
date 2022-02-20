@@ -4,13 +4,21 @@
     </head>
     <body>
         <table>
-            <th>
-                <td>Product</td>
-                <td>Category</td>
-                <td>Aisle Location</td>
-                <td>Price</td>
-            </th>
-            
+            <tr>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Aisle Location</th>
+                <th>Price</th>
+            </tr>
+            {%for products in productList%}
+                <tr>
+                    <td>{{products.product_name}}</td>
+                    <td>{{products.product_type}}</td>
+                    <td>{{products.product_location}}</td>
+                    <td>${{products.price}}.00</td>
+                </tr>
+            {%endfor%}
+
         </table>
     </body>
 </html>
