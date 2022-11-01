@@ -16,7 +16,7 @@ with app.app_context():
 
 @app.route("/")
 def index():
-    return redirect("/intro")
+    return redirect("/add")
 
 @app.route("/intro")
 def intro():
@@ -50,9 +50,10 @@ def add():
     name=["Product1","Product2","Product3","Product4","Product5"]
     type=["Food", "Electronic", "Drink", "Outdoors","Toys"]
     location=[1,2,3,4,5,6,7,8,9]
+    aisle =[1,2,3,4,5,6,7,8,9]
     count = 0
-    while count < 20:
-        newProduct = Products(name[randrange(0,len(name))],type[randrange(0,len(type))],location[randrange(0,len(location))],randrange(1,100))
+    while count < 100:
+        newProduct = Products(name[randrange(0,len(name))],type[randrange(0,len(type))],location[randrange(0,len(location))],aisle[randrange(0,len(aisle))],randrange(1,100))
         db.session.add(newProduct)
         db.session.commit()
         count += 1
